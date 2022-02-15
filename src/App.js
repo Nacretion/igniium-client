@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import React, {useState} from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {VisibleContext} from "./context";
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Feed from "./pages/Feed";
+import Create from "./pages/Create";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [modalReport, setModalReport] = useState(false)
+    const [modalSignIn, setModalSignIn] = useState(false)
+    const [modalSignUp, setModalSignUp] = useState(false)
+
+    return (
+        <div className="App">
+            <VisibleContext.Provider value={{
+                modalReport,
+                setModalReport,
+                modalSignIn,
+                setModalSignIn,
+                modalSignUp,
+                setModalSignUp
+            }}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route exact path="/" element={ <Feed /> }/>
+                        <Route exact path="/Feed" element={ <Navigate to="/" /> }/>
+                        <Route exact path="/create" element={ <Create /> }/>
+                        <Route path="*" element={ <NotFound />}/>
+                    </Routes>
+                </BrowserRouter>
+            </VisibleContext.Provider>
+        </div>
+    );
 }
 
 export default App;
