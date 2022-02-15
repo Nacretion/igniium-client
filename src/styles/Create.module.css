@@ -1,0 +1,40 @@
+.create {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    padding: 3vw;
+    margin: 3vw;
+}
+
+.input {
+    height: 5vh;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.textField {
+    width: 20vw;
+    height: 10vh;
+    overflow-x: auto;
+
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin-top: 2vh;
+    min-width: 20vw;
+    width: 100%;
+}
+
+.select {
+    justify-content: center;
+    width: 100%;
+}

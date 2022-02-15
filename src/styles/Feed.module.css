@@ -1,0 +1,33 @@
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    padding: 5vh 25vw;
+}
+
+.cardsWrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+}
+
+.card {
+    width: 90%;
+    margin: .5vw;
+    cursor: pointer;
+}
+
+.input {
+    height: 5vh;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
+.textField {
+    width: 20vw;
+    height: 10vh;
+    overflow-x: auto;
+
+}
