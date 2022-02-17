@@ -1,25 +1,29 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Image from "react-bootstrap/Image";
 import classes from "./models/Header.module.css";
 import comics from '../assets/comics.png'
-import {Urls} from "../utils/urls";
 import {Button} from "@mui/material";
 import {VisibleContext} from "../context";
 import {useNavigate} from "react-router-dom";
+import MyMenu from "./UI/Menu/MyMenu";
 
-const Header = () => {
+const Header = ({withoutLogIn}) => {
     const navigate = useNavigate()
-
     const {setModalSignIn, setModalSignUp} = useContext(VisibleContext)
+
     return (
         <header className={classes.header}>
-            <a onClick={()=> navigate("/")}>
-                <Image className={classes.image} src={comics} />
+            <a onClick={() => navigate("/")}>
+                <Image className={classes.image} src={comics}/>
             </a>
+            <div className={classes.menu}>
+                <MyMenu />
+            </div>
+
             <nav className={classes.nav}>
                 <div className={classes.linkWrapper}>
                     <a className={classes.link}
-                       onClick={()=> navigate("/")}
+                       onClick={() => navigate("/")}
                     >Feed</a>
                 </div>
                 <div className={classes.linkWrapper}>
@@ -33,10 +37,9 @@ const Header = () => {
                                 color: "#fff",
                             },
                         }}
-                        onClick={()=> navigate("/create")}
+                        onClick={() => navigate("/create")}
                     >Create</Button>
-                    <a className={classes.link} onClick={() => setModalSignIn(true)}>Sign in</a>
-                    <a className={classes.link} onClick={() => setModalSignUp(true)}>Sign up</a>
+                    {withoutLogIn ? "" : <a className={classes.link} onClick={() => setModalSignIn(true)}>Sign in</a> }
                 </div>
 
             </nav>

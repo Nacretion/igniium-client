@@ -3,19 +3,18 @@
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
-    padding: 3vw;
-    margin: 3vw;
+    padding: 3vh;
+    margin: 3vh 20vw;
+    min-width: 40vw;
 }
 
 .input {
-    height: 5vh;
+    margin-top: 8vh;
     width: 100%;
-    margin-bottom: 2vh;
 }
 
 .textField {
     width: 20vw;
-    height: 10vh;
     overflow-x: auto;
 
 }
@@ -25,16 +24,44 @@
     flex-direction: column;
 }
 
+.inputLabel {
+    font-size: calc(.7vh + .7vw);
+}
+
 .selectWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    margin-top: 2vh;
+    margin: calc(2vh + 2vw) 0;
     min-width: 20vw;
     width: 100%;
 }
 
 .select {
+    margin-bottom: 2vh;
+    min-height: 6vh;
     justify-content: center;
     width: 100%;
+}
+
+.inputProps{
+    margin-top: 77vh;
+}
+
+.text {
+    color: #6f42c1;
+    font-size: calc(1.5vh + 1.5vw);
+}
+
+@media screen and (max-width: 480px) {
+    .create {
+        margin: 3vh 3vw;
+    }
+    .input {
+        margin-top: 45px;
+    }
+    .text {
+         font-size: 2em;
+     }
+
 }

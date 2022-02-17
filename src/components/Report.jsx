@@ -1,29 +1,21 @@
 import React, {useContext, useState} from 'react';
 import Modal from "./UI/Modal/Modal";
-import classes from "./models/SignIn.module.css";
+import classes from "./models/Report.module.css";
 import {Button, Input, TextField} from "@mui/material";
 import {VisibleContext} from "../context";
-import FileUpload from "./UI/FileUpload/FileUpload";
 import { useNavigate } from 'react-router-dom';
+import Previews from "./Previws";
 
 const Report = ({redirect}) => {
     const {modalReport, setModalReport} = useContext(VisibleContext)
-    const [newFiles, setNewFiles] = useState({
-        filesReport: []
-    })
-    const navigate = useNavigate();
 
-    const updateUploadedFiles = (files) =>
-        setNewFiles({ ...newFiles, filesReport: files });
+    const navigate = useNavigate();
 
 
     const handleSubmit = (event) => {
         event.preventDefault()
         //logic
 
-        setNewFiles({
-            filesReport: []
-        })
         setModalReport(false)
         if (redirect) {
             navigate("/")
@@ -53,11 +45,7 @@ const Report = ({redirect}) => {
                         variant="standard"
                     />
                 </div>
-                <FileUpload
-                    accept=".jpg,.png,.jpeg"
-                    multiple
-                    updateFilesCb={updateUploadedFiles}
-                />
+                <Previews className={classes.textField}/>
 
                 <Button type="submit" variant="outlined">Continue</Button>
             </Modal>

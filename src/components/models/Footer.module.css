@@ -2,11 +2,55 @@
     background-color: #fff;
     display: flex;
     align-items: center;
-    width: 100vw;
-    height: 10vh;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
     padding: 0 10vw;
 }
 
+.link {
+    color: #8163ff;
+    text-decoration: none;
+    vertical-align: center;
+    font-size: calc(.85vh + .85vw);
+    margin: 0 1.5vw 0 1.5vw;
+    cursor: pointer;
+}
+
+.linksContainer, .linksWrapper {
+    width: 100%;
+    display: flex;
+}
+
+.linksWrapper {
+    align-items: center;
+    justify-content: end;
+}
+
 .image {
-    height: 7vh;
+    height: 16vh;
+}
+
+.button {
+    margin-left: auto;
+}
+
+
+@media screen and (max-width: 480px) {
+    .linksContainer {
+        flex-direction: column;
+    }
+    .linksWrapper {
+        margin-top: 40px;
+        width: 100%;
+
+    }
+
+
+}
+
+
+@media screen and (min-width: 481px ) and (max-width: 768px) {
+
 }

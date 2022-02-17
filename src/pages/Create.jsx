@@ -1,103 +1,89 @@
 import React, {useState} from 'react';
-import {Button, Checkbox, FormControlLabel, MenuItem, TextField} from "@mui/material";
+import {Button, Checkbox, FormControlLabel, MenuItem, TextField, TextareaAutosize} from "@mui/material";
 import classes from "../styles/Create.module.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ChipInput from 'material-ui-chip-input';
-import FileUpload from "../components/UI/FileUpload/FileUpload";
 import {useLocation, useNavigate} from "react-router-dom";
-
+import Previews from "../components/Previws";
 
 const Create = () => {
+
     const location = useLocation();
     const [newTitleID, setNewTitleID] = useState("1")
-    const [newPreview, setNewPreview] = useState({
-        filesReport: []
-    })
-    const [newPages, setNewPages] = useState({
-        filesReport: []
-    })
-    const navigate = useNavigate();
 
-    const updateUploadedPreview = (files) =>
-        setNewPreview({ ...newPreview, filesReport: files });
-    const updateUploadedPages = (files) =>
-        setNewPages({ ...newPages, filesReport: files });
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault()
         //logic
 
-        setNewPreview({
-            filesReport: []
-        })
         navigate(location.pathname +"/"+ newTitleID)
     }
 
     return (
         <>
-            <Header/>
+            <Header withoutLogIn={true} />
             <form className={classes.create} onSubmit={handleSubmit}>
-                <h1>Create a title</h1>
+                <p className={classes.text}>Create a title</p>
                 <TextField
-                    style={{marginBottom: "2vh"}}
-                    className={classes.input}
+                    required
+                    InputLabelProps={{className: classes.inputLabel}}
+                    style={{marginTop: "20px"}}
+
                     id="standard-textarea"
                     label="Title name"
                     placeholder="Name"
                     variant="standard"
                 />
+
                 <TextField
-                    style={{marginBottom: "2vh"}}
-                    className={classes.input}
+                    required
+                    InputLabelProps={{className: classes.inputLabel}}
+                    style={{marginTop: "20px"}}
+
                     id="standard-textarea"
                     label="Title author"
                     placeholder="Author"
                     variant="standard"
                 />
                 <TextField
-                    style={{marginBottom: "2vh"}}
-                    className={classes.input}
+                    required
+                    InputLabelProps={{className: classes.inputLabel}}
+                    style={{marginTop: "20px"}}
+
                     id="standard-textarea"
                     label="Title description"
                     placeholder="Description"
                     variant="standard"
                     multiline
                 />
-                <TextField
-                    style={{marginBottom: "2vh"}}
-                    className={classes.input}
-                    id="standard-textarea"
-                    label="Title name"
-                    placeholder="Name"
-                    variant="standard"
-                />
                 <ChipInput
+                    required
+                    InputLabelProps={{className: classes.inputLabel}}
+                    style={{marginTop: "20px"}}
                     className={classes.input}
                     label="Title genres"
-                    style={{
-                        marginTop: "2vh",
-                        minHeight: "6vh"
-                    }}
                 />
                 <ChipInput
-                    className={classes.input}
+                    required
+                    InputLabelProps={{className: classes.inputLabel}}
+                    style={{marginTop: "20px"}}
                     label="Title tags"
-                    style={{
-                        marginTop: "2vh",
-                        minHeight: "6vh"
-                    }}
                 />
                 <div className={classes.selectWrapper}>
                     <TextField
-                        select
+                        InputProps={{className: classes.inputLabel}}
                         className={classes.select}
+                        required
+                        select
                         label="Status"
                     >
                         <MenuItem value={0}>Completed</MenuItem>
                         <MenuItem value={1}>Ongoing</MenuItem>
                     </TextField>
                     <FormControlLabel
+                        inputLabelProps={{className: classes.inputLabel}}
                         className={classes.select}
                         control={<Checkbox />}
                         label='NSFW'
@@ -105,18 +91,7 @@ const Create = () => {
                     />
                 </div>
 
-                <FileUpload
-                    heading="preview"
-                    accept=".jpg,.png,.jpeg"
-                    updateFilesCb={updateUploadedPreview}
-                />
-
-                <FileUpload
-                    heading="pages"
-                    accept=".jpg,.png,.jpeg"
-                    multiple
-                    updateFilesCb={updateUploadedPages}
-                />
+                <Previews />
                 <Button
                     variant="outlined"
                     type="submit"

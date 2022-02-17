@@ -5,15 +5,25 @@ import {VisibleContext} from "../context";
 import classes from "./models/SignIn.module.css";
 
 const SignUp = () => {
-    const {modalSignUp, setModalSignUp} = useContext(VisibleContext)
+    const {modalSignUp, setModalSignUp, setModalSignIn} = useContext(VisibleContext)
+
+
+    const toggleRegister = () => {
+        setModalSignUp(false)
+        setModalSignIn(true)
+    }
+
     return (
         <Modal visible={modalSignUp} setVisible={setModalSignUp}>
-            <p className={classes.heading}>Sign Up</p>
+            <div style={{display: "flex"}}>
+                <a className={classes.heading} onClick={toggleRegister}> Sign Up</a>
+                <p className={classes.heading}>&nbsp;/&nbsp;Register</p>
+            </div>
             <div className={classes.inputWrapper}>
-                <Input className={classes.input} type="text" placeholder="username"/>
-                <Input className={classes.input} type="password" placeholder="password"/>
-                <Input className={classes.input} type="password" placeholder="Repeat password"/>
-                <Input className={classes.input} type="text" placeholder="E-mail"/>
+                <Input className={classes.input} type="text" placeholder="E-MAIL"/>
+                <Input className={classes.input} type="text" placeholder="USERNAME"/>
+                <Input className={classes.input} type="password" placeholder="PASSWORD"/>
+                <Input className={classes.input} type="password" placeholder="REPEAT PASSWORD"/>
             </div>
             <Button variant="outlined">Continue</Button>
         </Modal>

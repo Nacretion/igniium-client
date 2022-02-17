@@ -12,26 +12,43 @@ import {useNavigate} from "react-router-dom";
 const Footer = () => {
     const navigate = useNavigate()
     const {setModalReport} = useContext(VisibleContext)
+
     return (
         <footer className={classes.footer}>
             <Report/>
             <a onClick={()=> navigate("/")}>
                 <Image className={classes.image} src={ignii} />
             </a>
-            <SocialNetworks/>
-            <Button
-                variant="outlined"
-                onClick={() => setModalReport(true)}
-                sx={{
-                    marginLeft: "2vw",
-                    color: '#8163ff',
-                    borderColor: "#8163ff",
-                    '&:hover': {
-                        backgroundColor: '#8163ff',
-                        color: "#fff",
-                    },
-                }}
-            >Contact us</Button>
+            <div className={classes.linksContainer}>
+                <SocialNetworks/>
+                <div className={classes.linksWrapper}>
+                    <a className={classes.link}
+                        onClick={() => navigate("/")}
+                >Terms and Conditions</a>
+                    <a className={classes.link}
+                       onClick={() => navigate("/")}
+                    >Code of Conduct</a>
+                    <a className={classes.link}
+                       onClick={() => navigate("/")}
+                    >FAQ</a>
+                    <Button
+                        variant="outlined"
+                        onClick={() => setModalReport(true)}
+                        className={classes.button}
+                        sx={{
+                            fontSize: "calc(.6vh + .6vw)",
+                            color: '#8163ff',
+                            borderColor: "#8163ff",
+                            '&:hover': {
+                                backgroundColor: '#8163ff',
+                                color: "#fff",
+                            },
+                        }}
+                    >Contact us</Button>
+
+                </div>
+
+            </div>
         </footer>
     );
 };

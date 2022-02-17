@@ -1,6 +1,5 @@
 import './styles/App.css';
 import React, {useState} from "react";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {VisibleContext} from "./context";
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
@@ -12,6 +11,7 @@ function App() {
     const [modalReport, setModalReport] = useState(false)
     const [modalSignIn, setModalSignIn] = useState(false)
     const [modalSignUp, setModalSignUp] = useState(false)
+    const [modalShowPreview, setModalShowPreview] = useState(false)
 
     return (
         <div className="App">
@@ -21,7 +21,9 @@ function App() {
                 modalSignIn,
                 setModalSignIn,
                 modalSignUp,
-                setModalSignUp
+                setModalSignUp,
+                modalShowPreview,
+                setModalShowPreview
             }}>
                 <BrowserRouter>
                     <Routes>

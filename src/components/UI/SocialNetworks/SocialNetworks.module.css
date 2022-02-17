@@ -1,5 +1,15 @@
 .socNetworksWrapper {
     display: flex;
-    height: 4vh;
+    height: 5vh;
     margin-left: 4vw;
+}
+
+@media screen and (max-width: 480px) {
+    .socNetworksWrapper {
+        height: 3vh;
+    }
+}
+
+
+@media screen and (min-width: 481px ) and (max-width: 768px) {
 }

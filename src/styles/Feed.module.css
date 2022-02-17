@@ -2,27 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 100%;
-    height: 80vh;
-    padding: 5vh 25vw;
+    min-height: 80vh;
+
+    padding: 5vh 15vw;
 }
 
 .cardsWrapper {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
     width: 100%;
-}
-
-.card {
-    width: 90%;
-    margin: .5vw;
-    cursor: pointer;
 }
 
 .input {
-    height: 5vh;
-    width: 100%;
-    margin-bottom: 2vh;
+    width: 80%;
+    margin-bottom: 4vh;
 }
 
 .textField {
@@ -31,3 +27,34 @@
     overflow-x: auto;
 
 }
+
+@media screen and (max-width: 480px) {
+    .contentWrapper {
+        padding: 5vh 10vw;
+    }
+
+    .input {
+        width: 100%;
+        margin-bottom: 4vh;
+    }
+
+    .cardsWrapper {
+        grid-template-columns: 1fr;
+        grid-gap: 1%;
+    }
+}
+
+
+@media screen and (min-width: 481px ) and (max-width: 768px) {
+    .contentWrapper {
+        padding: 5vh 5vw;
+    }
+
+    .cardsWrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+
