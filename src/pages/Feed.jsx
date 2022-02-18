@@ -21,7 +21,7 @@ const Feed = () => {
                     style={{marginBottom: "2vh"}}
                     className={classes.input}
                     id="standard-textarea"
-                    label="Search"
+                    label="S2earch"
                     variant="standard"
                 />
                 <div className={classes.cardsWrapper}>
